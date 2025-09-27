@@ -243,3 +243,4 @@ python3 conversor_completo_markdown_opcoes.py "apostila.pdf" --paginas 1-20
 ---
 
 **🎓 Sistema desenvolvido para conversão eficiente de apostilas PDF em Markdown com extração completa de imagens.**
+# Converso_ApostilaPDF_em_Markdown
