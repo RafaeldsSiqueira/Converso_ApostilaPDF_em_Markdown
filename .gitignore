@@ -1,0 +1,403 @@
+# Sistema Docling Limpo - .gitignore
+# ==================================
+
+# Python
+# ------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+# -------------------
+venv/
+venv_*/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+.env/
+
+# IDE and Editor files
+# -------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Project specific
+# ---------------
+# Output directories
+output*/
+outputs/
+uploads/
+temp/
+tmp/
+
+# Test files and directories
+teste_*/
+test_*/
+*_test.py
+*_test_*.py
+
+# Log files
+*.log
+logs/
+
+# Configuration files with sensitive data
+config.ini
+secrets.json
+.env.local
+.env.production
+
+# Large model files (if any)
+models/
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# OS generated files
+# -----------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jupyter Notebook
+# ----------------
+.ipynb_checkpoints
+
+# pyenv
+# -----
+.python-version
+
+# pipenv
+# ------
+Pipfile.lock
+
+# PEP 582
+# -------
+__pypackages__/
+
+# Celery
+# ------
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+# --------------------
+*.sage.py
+
+# Environments
+# ------------
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+# -----------------------
+.spyderproject
+.spyproject
+
+# Rope project settings
+# ---------------------
+.ropeproject
+
+# mkdocs documentation
+# -------------------
+/site
+
+# mypy
+# ----
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+# -----------------
+.pyre/
+
+# pytype static type analyzer
+# --------------------------
+.pytype/
+
+# Cython debug symbols
+# --------------------
+cython_debug/
+
+# Project specific ignores
+# =======================
+
+# Docling specific
+# ---------------
+# Output files from conversions (uncomment if needed)
+# *.pdf
+# *.docx
+# *.pptx
+# *.html
+# *.json
+
+# Generated markdown files (keep templates, ignore generated)
+# Uncomment if you want to ignore generated markdown files
+# *.md
+# !README.md
+# !*.template.md
+
+# Image files (if they are generated outputs)
+# Uncomment if you want to ignore generated images
+# *.png
+# *.jpg
+# *.jpeg
+# *.ppm
+# *.pbm
+
+# Temporary conversion files
+conversion_*/
+temp_conversion/
+
+# Flask specific
+# -------------
+instance/
+.webassets-cache
+
+# Coverage reports
+# ----------------
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+# ------------
+*.mo
+*.pot
+
+# Django stuff (if applicable)
+# ---------------------------
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff (if applicable)
+# ---------------------------
+instance/
+.webassets-cache
+
+# Scrapy stuff (if applicable)
+# ----------------------------
+.scrapy
+
+# Sphinx documentation
+# --------------------
+docs/_build/
+
+# PyBuilder
+# ---------
+.pybuilder/
+target/
+
+# Jupyter Notebook
+# ----------------
+.ipynb_checkpoints
+
+# IPython
+# -------
+profile_default/
+ipython_config.py
+
+# pyenv
+# -----
+.python-version
+
+# pipenv
+# ------
+Pipfile.lock
+
+# poetry
+# ------
+poetry.lock
+
+# pdm
+# ---
+.pdm.toml
+
+# PEP 582
+# -------
+__pypackages__/
+
+# Celery stuff
+# ------------
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+# --------------------
+*.sage.py
+
+# Environments
+# ------------
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+# -----------------------
+.spyderproject
+.spyproject
+
+# Rope project settings
+# ---------------------
+.ropeproject
+
+# mkdocs documentation
+# -------------------
+/site
+
+# mypy
+# ----
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+# -----------------
+.pyre/
+
+# pytype static type analyzer
+# --------------------------
+.pytype/
+
+# Cython debug symbols
+# --------------------
+cython_debug/
+
+# PyCharm
+# -------
+.idea/
+
+# VS Code
+# -------
+.vscode/
+
+# Sublime Text
+# ------------
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+# ---
+*.swp
+*.swo
+*~
+
+# Emacs
+# -----
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# OS generated files
+# -----------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+# -------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+# -----
+*~
+
+# Project specific
+# ================
+
+# Keep important documentation
+!README.md
+!*.md
+!docs/
+!*.rst
+
+# Keep configuration templates
+!*.template.*
+!*.example.*
+
+# Keep essential scripts
+!*.sh
+!*.py
+
+# Keep frontend files
+!*.html
+!*.css
+!*.js
+!*.json
+
+# Keep requirements files
+!requirements*.txt
+!*.txt
+!pyproject.toml
+!setup.py
+!setup.cfg
+!MANIFEST.in
