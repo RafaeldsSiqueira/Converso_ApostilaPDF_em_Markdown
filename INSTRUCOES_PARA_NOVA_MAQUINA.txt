@@ -1,0 +1,125 @@
+================================================================================
+🖥️  INSTRUÇÕES PARA EXECUTAR NA OUTRA MÁQUINA (dell3420)
+================================================================================
+
+PROBLEMA IDENTIFICADO:
+----------------------
+1. Ambiente virtual não foi criado (venv_docling não existe)
+2. Sistema usa 'python3' mas script tentava usar 'python'
+
+SOLUÇÃO:
+--------
+Os scripts foram CORRIGIDOS e agora detectam automaticamente python3.
+
+PASSOS PARA EXECUTAR NA MÁQUINA DELL3420:
+-----------------------------------------
+
+1. ATUALIZAR OS ARQUIVOS:
+   
+   Execute um 'git pull' para obter as correções:
+   
+   cd ~/Converso_ApostilaPDF_em_Markdown
+   git pull
+   
+   OU copie os arquivos corrigidos:
+   - iniciar_frontend.sh
+   - usar.sh
+   - diagnostico.sh
+   - SETUP_NOVA_MAQUINA.md
+   - SOLUCAO_RAPIDA.md
+
+2. DAR PERMISSÃO AOS SCRIPTS:
+   
+   chmod +x *.sh
+
+3. EXECUTAR INSTALAÇÃO COMPLETA:
+   
+   ./instalar.sh
+   
+   Este script vai:
+   ✅ Verificar e instalar Python3
+   ✅ Verificar e instalar pip3
+   ✅ Verificar e instalar poppler-utils
+   ✅ Criar ambiente virtual venv_docling
+   ✅ Instalar todas as dependências
+
+4. EXECUTAR DIAGNÓSTICO (OPCIONAL):
+   
+   ./diagnostico.sh
+   
+   Isto vai mostrar se há algum problema pendente.
+
+5. INICIAR O FRONTEND:
+   
+   ./iniciar_frontend.sh
+   
+   Agora deve funcionar sem erros!
+   Acesse: http://localhost:9000
+
+================================================================================
+O QUE FOI CORRIGIDO:
+================================================================================
+
+✅ iniciar_frontend.sh:
+   - Detecta automaticamente python3 ou python
+   - Verifica se venv existe antes de tentar ativar
+   - Verifica se arquivo activate existe
+   - Mensagens de erro muito mais claras
+   - Sugere soluções quando há problemas
+
+✅ usar.sh:
+   - Verifica se venv existe antes de tentar ativar
+   - Mensagens de erro mais claras
+
+✅ diagnostico.sh (NOVO):
+   - Script completo de diagnóstico
+   - Verifica Python, pip, poppler-utils
+   - Verifica ambiente virtual
+   - Verifica módulos instalados
+   - Verifica portas
+   - Verifica espaço em disco
+   - Fornece resumo e recomendações
+
+✅ Documentação:
+   - README.md atualizado com troubleshooting
+   - SETUP_NOVA_MAQUINA.md (guia detalhado)
+   - SOLUCAO_RAPIDA.md (solução rápida)
+
+================================================================================
+COMANDOS RESUMIDOS PARA COPIAR E COLAR:
+================================================================================
+
+cd ~/Converso_ApostilaPDF_em_Markdown
+git pull
+chmod +x *.sh
+./instalar.sh
+./diagnostico.sh
+./iniciar_frontend.sh
+
+================================================================================
+APÓS A INSTALAÇÃO:
+================================================================================
+
+USO NORMAL - Interface Web (RECOMENDADO):
+./iniciar_frontend.sh
+# Acesse: http://localhost:9000
+
+USO - Linha de Comando:
+source venv_docling/bin/activate
+python conversor_completo_markdown_opcoes.py "apostila.pdf" -m completo
+
+================================================================================
+SE AINDA TIVER PROBLEMAS:
+================================================================================
+
+1. Execute o diagnóstico e me envie a saída:
+   ./diagnostico.sh > diagnostico.log
+   cat diagnostico.log
+
+2. Consulte a documentação:
+   - SOLUCAO_RAPIDA.md
+   - SETUP_NOVA_MAQUINA.md
+   - README.md (seção "Solução de Problemas")
+
+================================================================================
+

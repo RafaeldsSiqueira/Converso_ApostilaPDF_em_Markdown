@@ -192,6 +192,29 @@ python3 conversor_completo_markdown_opcoes.py "apostila.pdf" -m basico
 
 ## 🚨 Solução de Problemas
 
+### ❌ **Erro: "python: comando não encontrado"**
+**Problema:** O sistema usa `python3` ao invés de `python`
+```bash
+# Solução 1: Os scripts foram corrigidos e detectam automaticamente
+./iniciar_frontend.sh  # Agora detecta python3 automaticamente
+
+# Solução 2: Criar alias (opcional)
+sudo apt install python-is-python3
+```
+
+### ❌ **Erro: "venv_docling/bin/activate: Arquivo ou diretório inexistente"**
+**Problema:** Ambiente virtual não foi criado
+```bash
+# Solução: Executar instalação completa
+./instalar.sh
+
+# Ou criar manualmente
+python3 -m venv venv_docling
+source venv_docling/bin/activate
+pip install docling pillow
+pip install -r requirements_frontend.txt
+```
+
 ### ❌ **Erro: "pdfimages não encontrado"**
 ```bash
 sudo apt install poppler-utils
@@ -200,7 +223,13 @@ sudo apt install poppler-utils
 ### ❌ **Erro: "No module named docling"**
 ```bash
 source venv_docling/bin/activate
-pip3 install docling
+pip install docling
+```
+
+### ❌ **Erro: "No module named flask"**
+```bash
+source venv_docling/bin/activate
+pip install -r requirements_frontend.txt
 ```
 
 ### ❌ **Processamento lento**
@@ -210,6 +239,18 @@ python3 conversor_completo_markdown_opcoes.py "apostila.pdf" -m basico
 
 # Ou limitar páginas (se implementado)
 python3 conversor_completo_markdown_opcoes.py "apostila.pdf" --paginas 1-20
+```
+
+### 🔧 **Primeira instalação em nova máquina**
+```bash
+# 1. Tornar scripts executáveis
+chmod +x instalar.sh iniciar_frontend.sh usar.sh
+
+# 2. Executar instalação completa
+./instalar.sh
+
+# 3. Iniciar interface web
+./iniciar_frontend.sh
 ```
 
 ## 📋 Requisitos
