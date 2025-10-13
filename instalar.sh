@@ -39,22 +39,27 @@ python3 -m venv venv_docling
 echo "🔄 Ativando ambiente virtual..."
 source venv_docling/bin/activate
 
-# Instalar dependências
-echo "🔄 Instalando dependências..."
-pip install docling pillow
+# Instalar dependências essenciais
+echo "🔄 Instalando dependências essenciais..."
+pip install -r requirements_minimal.txt
+
+# Perguntar se quer instalar dependências completas
+echo ""
+echo "💡 Para instalar todas as dependências (incluindo CUDA), execute:"
+echo "   pip install -r requirements.txt"
+echo ""
 
 # Verificar instalação
 echo ""
 echo "🧪 Testando instalação..."
-python teste_docling.py
+python -c "import docling; print('✅ Docling instalado com sucesso!')"
+python -c "import flask; print('✅ Flask instalado com sucesso!')"
 
 echo ""
 echo "🎉 Instalação concluída!"
 echo "📁 Para usar o sistema:"
-echo "   source venv_docling/bin/activate"
-echo "   python conversor_completo_markdown_opcoes.py \"apostila.pdf\" -m completo"
+echo "   ./iniciar_frontend.sh"
 echo ""
 echo "📚 Documentação disponível:"
-echo "   - README.md (este arquivo)"
+echo "   - README.md"
 echo "   - GUIA_USO_ATUALIZADO.md"
-echo "   - GUIA_INSTALACAO.md"
