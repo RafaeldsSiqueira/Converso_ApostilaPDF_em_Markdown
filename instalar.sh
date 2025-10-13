@@ -30,10 +30,34 @@ else
     echo "✅ poppler-utils encontrado"
 fi
 
+# Verificar e limpar ambiente virtual corrompido
+if [ -d "venv_docling" ] && [ ! -f "venv_docling/bin/activate" ]; then
+    echo "⚠️ Ambiente virtual corrompido detectado. Removendo..."
+    rm -rf venv_docling
+fi
+
+# Remover ambiente virtual se existir
+if [ -d "venv_docling" ]; then
+    echo "🔄 Removendo ambiente virtual existente..."
+    rm -rf venv_docling
+fi
+
 # Criar ambiente virtual
 echo ""
 echo "🔄 Criando ambiente virtual..."
 python3 -m venv venv_docling
+
+# Verificar se foi criado corretamente
+if [ ! -f "venv_docling/bin/activate" ]; then
+    echo "❌ Erro na criação do ambiente virtual!"
+    echo "🔍 Verificando:"
+    echo "   - Espaço em disco: $(df -h . | tail -1)"
+    echo "   - Permissões: $(ls -la venv_docling/ 2>/dev/null || echo 'Diretório não existe')"
+    echo "   - Python3: $(which python3)"
+    exit 1
+fi
+
+echo "✅ Ambiente virtual criado com sucesso!"
 
 # Ativar ambiente virtual
 echo "🔄 Ativando ambiente virtual..."
@@ -52,8 +76,25 @@ echo ""
 # Verificar instalação
 echo ""
 echo "🧪 Testando instalação..."
-python -c "import docling; print('✅ Docling instalado com sucesso!')"
-python -c "import flask; print('✅ Flask instalado com sucesso!')"
+if ! python -c "import docling; print('✅ Docling OK')" 2>/dev/null; then
+    echo "❌ Erro: Docling não instalado corretamente"
+    echo "🔄 Tentando reinstalar..."
+    pip install --no-cache-dir docling
+    if ! python -c "import docling; print('✅ Docling OK')" 2>/dev/null; then
+        echo "❌ Falha na reinstalação do Docling"
+        exit 1
+    fi
+fi
+
+if ! python -c "import flask; print('✅ Flask OK')" 2>/dev/null; then
+    echo "❌ Erro: Flask não instalado corretamente"
+    echo "🔄 Tentando reinstalar..."
+    pip install --no-cache-dir flask flask-cors werkzeug
+    if ! python -c "import flask; print('✅ Flask OK')" 2>/dev/null; then
+        echo "❌ Falha na reinstalação do Flask"
+        exit 1
+    fi
+fi
 
 echo ""
 echo "🎉 Instalação concluída!"
